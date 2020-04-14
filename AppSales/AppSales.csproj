@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2DD03C9B-7CD6-40AA-9ADA-6D7CC8B2B7E8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppSales</RootNamespace>
+    <AssemblyName>AppSales</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AppSales.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, PublicKeyToken=e8a75d24b142be49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>QRDLLs\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="IrisSkin2">
+      <HintPath>Skin\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.14.0.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>QRDLLs\zxing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\AdministradorBLL.cs" />
+    <Compile Include="BLL\ClienteBLL.cs" />
+    <Compile Include="BLL\DetalleLibroComprasBLL.cs" />
+    <Compile Include="BLL\DetalleLibroVentasBLL.cs" />
+    <Compile Include="BLL\DescuentoBLL.cs" />
+    <Compile Include="BLL\DetalleVentaBLL.cs" />
+    <Compile Include="BLL\EmpleadoBLL.cs" />
+    <Compile Include="BLL\FacturaBLL.cs" />
+    <Compile Include="BLL\GananciasBLL.cs" />
+    <Compile Include="BLL\LibroComprasBLL.cs" />
+    <Compile Include="BLL\LibroVentasBLL.cs" />
+    <Compile Include="BLL\LlaveFacturaBLL.cs" />
+    <Compile Include="BLL\LoginBLL.cs" />
+    <Compile Include="BLL\MarcaBLL.cs" />
+    <Compile Include="BLL\ModeloBLL.cs" />
+    <Compile Include="BLL\MonedaBLL.cs" />
+    <Compile Include="BLL\OfertaBLL.cs" />
+    <Compile Include="BLL\ParametroClienteBLL.cs" />
+    <Compile Include="BLL\PersonaBLL.cs" />
+    <Compile Include="BLL\ProductoBLL.cs" />
+    <Compile Include="BLL\ProductoMasVendidoBLL.cs" />
+    <Compile Include="BLL\ProveedorBLL.cs" />
+    <Compile Include="BLL\ReporteGananciasBLL.cs" />
+    <Compile Include="BLL\ReporteStockBLL.cs" />
+    <Compile Include="BLL\TallaBLL.cs" />
+    <Compile Include="BLL\VariacionPrecioProductosBLL.cs" />
+    <Compile Include="BLL\VentasBLL.cs" />
+    <Compile Include="DAL\AdministradorDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdministradorDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ClienteDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClienteDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DetalleLibroComprasDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetalleLibroComprasDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DetalleLibroVentasDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetalleLibroVentasDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DescuentoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DescuentoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DetalleVentaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetalleVentaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\EmpleadoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpleadoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\FacturaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\GananciasDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GananciasDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LibroComprasDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibroComprasDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LibroVentasDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibroVentasDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LlaveFacturaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LlaveFacturaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LoginAdminDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginAdminDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LoginDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\MarcaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarcaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\MasVendidoDS.cs">
+      <DependentUpon>MasVendidoDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DAL\MasVendidoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MasVendidoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ModeloDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\MonedaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonedaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ParametroClienteDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ParametroClienteDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PersonaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ProductoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ProveedorDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProveedorDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ReporteGananciasDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteGananciasDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\TallaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TallaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\VariacionPrecioProductoDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VariacionPrecioProductoDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\VentaPeriodosDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VentaPeriodosDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\Administrador.cs" />
+    <Compile Include="DTO\DetalleLibroCompras.cs" />
+    <Compile Include="DTO\DetalleLibroVentas.cs" />
+    <Compile Include="DTO\Descuento.cs" />
+    <Compile Include="DTO\DetalleVenta.cs" />
+    <Compile Include="DTO\Empleado.cs" />
+    <Compile Include="DTO\Factura.cs" />
+    <Compile Include="DTO\GananciasDTO.cs" />
+    <Compile Include="DTO\IdUsuario.cs" />
+    <Compile Include="DTO\LibroCompras.cs" />
+    <Compile Include="DTO\LibroVentas.cs" />
+    <Compile Include="DTO\LlaveFactura.cs" />
+    <Compile Include="DTO\Login.cs" />
+    <Compile Include="DTO\Marca.cs" />
+    <Compile Include="DTO\Modelo.cs" />
+    <Compile Include="DTO\ParametroCliente.cs" />
+    <Compile Include="DTO\Producto.cs" />
+    <Compile Include="DTO\ProductoMasVendido.cs" />
+    <Compile Include="DTO\Proveedor.cs" />
+    <Compile Include="DTO\ReporteGanancias.cs" />
+    <Compile Include="DTO\ReporteStock.cs" />
+    <Compile Include="DTO\Talla.cs" />
+    <Compile Include="DTO\VariacionesPrecioProductos.cs" />
+    <Compile Include="DTO\Ventas.cs" />
+    <Compile Include="Facturacion\Common.cs" />
+    <Compile Include="Facturacion\NumeralToLiteral.cs" />
+    <Compile Include="frmBuscarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarProducto.Designer.cs">
+      <DependentUpon>frmBuscarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\OfertaDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OfertaDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\Cliente.cs" />
+    <Compile Include="DTO\Entidades.cs" />
+    <Compile Include="DTO\Moneda.cs" />
+    <Compile Include="DTO\Oferta.cs" />
+    <Compile Include="DTO\Persona.cs" />
+    <Compile Include="Facturacion\AllegedRC4.cs" />
+    <Compile Include="Facturacion\Base64.cs" />
+    <Compile Include="Facturacion\CodigoControl.cs" />
+    <Compile Include="Facturacion\Verhoeff.cs" />
+    <Compile Include="frmDescuentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDescuentos.Designer.cs">
+      <DependentUpon>frmDescuentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmpleados.Designer.cs">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImprimirFacturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImprimirFacturas.Designer.cs">
+      <DependentUpon>frmImprimirFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarDescuentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarDescuentos.Designer.cs">
+      <DependentUpon>frmInsertarDescuentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarLibroCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarLibroCompras.Designer.cs">
+      <DependentUpon>frmInsertarLibroCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarLibroVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarLibroVentas.Designer.cs">
+      <DependentUpon>frmInsertarLibroVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarMarcas.Designer.cs">
+      <DependentUpon>frmInsertarMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarModelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarModelos.Designer.cs">
+      <DependentUpon>frmInsertarModelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarLlaveFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarLlaveFactura.Designer.cs">
+      <DependentUpon>frmInsertarLlaveFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarPersonas.Designer.cs">
+      <DependentUpon>frmInsertarPersonas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarTalla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarTalla.Designer.cs">
+      <DependentUpon>frmInsertarTalla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLibroCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLibroCompras.Designer.cs">
+      <DependentUpon>frmLibroCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLibroVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLibroVentas.Designer.cs">
+      <DependentUpon>frmLibroVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarOfertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarOfertas.Designer.cs">
+      <DependentUpon>frmInsertarOfertas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOfertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOfertas.Designer.cs">
+      <DependentUpon>frmOfertas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarProductos.Designer.cs">
+      <DependentUpon>frmInsertarProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProveedores.Designer.cs">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteDeGanancias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteDeGanancias.Designer.cs">
+      <DependentUpon>frmReporteDeGanancias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteLibroCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteLibroCompra.Designer.cs">
+      <DependentUpon>frmReporteLibroCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteLibroVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteLibroVenta.Designer.cs">
+      <DependentUpon>frmReporteLibroVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteMasVendido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteMasVendido.Designer.cs">
+      <DependentUpon>frmReporteMasVendido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteStockProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteStockProductos.Designer.cs">
+      <DependentUpon>frmReporteStockProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteVentaPeriodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteVentaPeriodos.Designer.cs">
+      <DependentUpon>frmReporteVentaPeriodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVentas.Designer.cs">
+      <DependentUpon>frmVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frnEjemploBarCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frnEjemploBarCode.Designer.cs">
+      <DependentUpon>frnEjemploBarCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesDAL\StockProductoDS.cs">
+      <DependentUpon>StockProductoDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportesDAL\StockProductoDS.Designer.cs">
+      <DependentUpon>StockProductoDS.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Validacion\Validaciones.cs" />
+    <EmbeddedResource Include="frmBuscarProducto.resx">
+      <DependentUpon>frmBuscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDescuentos.resx">
+      <DependentUpon>frmDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImprimirFacturas.resx">
+      <DependentUpon>frmImprimirFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarDescuentos.resx">
+      <DependentUpon>frmInsertarDescuentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarLibroCompras.resx">
+      <DependentUpon>frmInsertarLibroCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarLibroVentas.resx">
+      <DependentUpon>frmInsertarLibroVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarMarcas.resx">
+      <DependentUpon>frmInsertarMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarModelos.resx">
+      <DependentUpon>frmInsertarModelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarLlaveFactura.resx">
+      <DependentUpon>frmInsertarLlaveFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarPersonas.resx">
+      <DependentUpon>frmInsertarPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarTalla.resx">
+      <DependentUpon>frmInsertarTalla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLibroCompras.resx">
+      <DependentUpon>frmLibroCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLibroVentas.resx">
+      <DependentUpon>frmLibroVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarOfertas.resx">
+      <DependentUpon>frmInsertarOfertas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOfertas.resx">
+      <DependentUpon>frmOfertas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarProductos.resx">
+      <DependentUpon>frmInsertarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductos.resx">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProveedores.resx">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteDeGanancias.resx">
+      <DependentUpon>frmReporteDeGanancias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteLibroCompra.resx">
+      <DependentUpon>frmReporteLibroCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteLibroVenta.resx">
+      <DependentUpon>frmReporteLibroVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteMasVendido.resx">
+      <DependentUpon>frmReporteMasVendido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteStockProductos.resx">
+      <DependentUpon>frmReporteStockProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteVentaPeriodos.resx">
+      <DependentUpon>frmReporteVentaPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVEntas.resx">
+      <DependentUpon>frmVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frnEjemploBarCode.resx">
+      <DependentUpon>frnEjemploBarCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InformeReporte\Ganancias.rdlc" />
+    <EmbeddedResource Include="InformeReporte\LibroCompra.rdlc" />
+    <EmbeddedResource Include="InformeReporte\LibroVenta.rdlc" />
+    <EmbeddedResource Include="InformeReporte\MasVendidos.rdlc" />
+    <EmbeddedResource Include="InformeReporte\StockProductos.rdlc" />
+    <EmbeddedResource Include="InformeReporte\StockProductoss.rdlc" />
+    <EmbeddedResource Include="InformeReporte\VentasPorPeriodos.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="BD\SalesProjectbck" />
+    <None Include="DAL\AdministradorDS.xsc">
+      <DependentUpon>AdministradorDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\AdministradorDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AdministradorDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\AdministradorDS.xss">
+      <DependentUpon>AdministradorDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ClienteDS.xsc">
+      <DependentUpon>ClienteDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ClienteDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClienteDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\ClienteDS.xss">
+      <DependentUpon>ClienteDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DetalleLibroComprasDS.xsc">
+      <DependentUpon>DetalleLibroComprasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DetalleLibroComprasDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DetalleLibroComprasDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\DetalleLibroComprasDS.xss">
+      <DependentUpon>DetalleLibroComprasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DetalleLibroVentasDS.xsc">
+      <DependentUpon>DetalleLibroVentasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DetalleLibroVentasDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DetalleLibroVentasDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\DetalleLibroVentasDS.xss">
+      <DependentUpon>DetalleLibroVentasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DescuentoDS.xsc">
+      <DependentUpon>DescuentoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DescuentoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DescuentoDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\DescuentoDS.xss">
+      <DependentUpon>DescuentoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DetalleVentaDS.xsc">
+      <DependentUpon>DetalleVentaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\DetalleVentaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DetalleVentaDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\DetalleVentaDS.xss">
+      <DependentUpon>DetalleVentaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\EmpleadoDS.xsc">
+      <DependentUpon>EmpleadoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\EmpleadoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmpleadoDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\EmpleadoDS.xss">
+      <DependentUpon>EmpleadoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\FacturaDS.xsc">
+      <DependentUpon>FacturaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\FacturaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FacturaDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\FacturaDS.xss">
+      <DependentUpon>FacturaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\GananciasDS.xsc">
+      <DependentUpon>GananciasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\GananciasDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GananciasDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\GananciasDS.xss">
+      <DependentUpon>GananciasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LibroComprasDS.xsc">
+      <DependentUpon>LibroComprasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LibroComprasDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LibroComprasDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\LibroComprasDS.xss">
+      <DependentUpon>LibroComprasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LibroVentasDS.xsc">
+      <DependentUpon>LibroVentasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LibroVentasDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LibroVentasDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\LibroVentasDS.xss">
+      <DependentUpon>LibroVentasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LlaveFacturaDS.xsc">
+      <DependentUpon>LlaveFacturaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LlaveFacturaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LlaveFacturaDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\LlaveFacturaDS.xss">
+      <DependentUpon>LlaveFacturaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LoginAdminDS.xsc">
+      <DependentUpon>LoginAdminDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LoginAdminDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LoginAdminDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\LoginAdminDS.xss">
+      <DependentUpon>LoginAdminDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LoginDS.xsc">
+      <DependentUpon>LoginDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\LoginDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LoginDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\LoginDS.xss">
+      <DependentUpon>LoginDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\MarcaDS.xsc">
+      <DependentUpon>MarcaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\MarcaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MarcaDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\MarcaDS.xss">
+      <DependentUpon>MarcaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\MasVendidoDS.xsc">
+      <DependentUpon>MasVendidoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\MasVendidoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MasVendidoDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\MasVendidoDS.xss">
+      <DependentUpon>MasVendidoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ModeloDS.xsc">
+      <DependentUpon>ModeloDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ModeloDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ModeloDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\ModeloDS.xss">
+      <DependentUpon>ModeloDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\MonedaDS.xsc">
+      <DependentUpon>MonedaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\MonedaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MonedaDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\MonedaDS.xss">
+      <DependentUpon>MonedaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\OfertaDS.xsc">
+      <DependentUpon>OfertaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\OfertaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OfertaDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\OfertaDS.xss">
+      <DependentUpon>OfertaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ParametroClienteDS.xsc">
+      <DependentUpon>ParametroClienteDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ParametroClienteDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ParametroClienteDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\ParametroClienteDS.xss">
+      <DependentUpon>ParametroClienteDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\PersonaDS.xsc">
+      <DependentUpon>PersonaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\PersonaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PersonaDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\PersonaDS.xss">
+      <DependentUpon>PersonaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ProductoDS.xsc">
+      <DependentUpon>ProductoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ProductoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductoDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\ProductoDS.xss">
+      <DependentUpon>ProductoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ProveedorDS.xsc">
+      <DependentUpon>ProveedorDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ProveedorDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProveedorDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\ProveedorDS.xss">
+      <DependentUpon>ProveedorDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ReporteGananciasDS.xsc">
+      <DependentUpon>ReporteGananciasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\ReporteGananciasDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteGananciasDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\ReporteGananciasDS.xss">
+      <DependentUpon>ReporteGananciasDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\TallaDS.xsc">
+      <DependentUpon>TallaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\TallaDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TallaDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\TallaDS.xss">
+      <DependentUpon>TallaDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\VariacionPrecioProductoDS.xsc">
+      <DependentUpon>VariacionPrecioProductoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\VariacionPrecioProductoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VariacionPrecioProductoDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\VariacionPrecioProductoDS.xss">
+      <DependentUpon>VariacionPrecioProductoDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\VentaPeriodosDS.xsc">
+      <DependentUpon>VentaPeriodosDS.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\VentaPeriodosDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VentaPeriodosDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\VentaPeriodosDS.xss">
+      <DependentUpon>VentaPeriodosDS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="ReportesDAL\StockProductoDS.xsc">
+      <DependentUpon>StockProductoDS.xsd</DependentUpon>
+    </None>
+    <None Include="ReportesDAL\StockProductoDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StockProductoDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportesDAL\StockProductoDS.xss">
+      <DependentUpon>StockProductoDS.xsd</DependentUpon>
+    </None>
+    <None Include="Skin\GlassGreen.ssk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="BD\Creacion De Tablas.sql" />
+    <Content Include="BD\Datos.sql" />
+    <Content Include="BD\Procedimientos Almacenados.sql" />
+    <Content Include="logo.ico" />
+    <Content Include="QRDLLs\Gma.QrCodeNet.Encoding.dll" />
+    <Content Include="QRDLLs\zxing.dll" />
+    <None Include="Resources\background.png" />
+    <Content Include="Skin\IrisSkin2.dll" />
+    <Content Include="Skin\SERIAL.txt" />
+    <Content Include="Resources\logo.ico" />
+    <Content Include="Resources\logo.png" />
+    <Content Include="Resources\minilulis-logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
